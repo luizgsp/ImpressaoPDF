@@ -1,0 +1,43 @@
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe.config
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.pdb
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\itextsharp.dll
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+C:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe.config
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.pdb
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\itextsharp.dll
+D:\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\ResolveAssemblyReference.cache
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe.config
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.pdb
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\itextsharp.dll
+\\cpdluiz\Projetos\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+F:\GeracaoColetasPDF.exe.config
+F:\COTACOES\EXEC\GeracaoColetasPDF.exe.config
+F:\COTACOES\EXEC\GeracaoColetasPDF.exe
+F:\COTACOES\EXEC\GeracaoColetasPDF.pdb
+\\cpdluiz\Projetos .net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+\\cpdluiz\Projetos .net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+\\cpdluiz\Projetos .net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+Z:\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+Z:\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+Z:\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+Z:\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+Z:\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+Z:\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+D:\Projetos .Net\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+D:\Projetos .Net\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+D:\Projetos .Net\GeracaoColetasPDF_local\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.exe
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.pdb
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\obj\x86\Release\GeracaoColetasPDF.csprojResolveAssemblyReference.cache
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe.config
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.exe
+D:\Projetos .Net\GeracaoColetasPDF\GeracaoColetasPDF\bin\Release\GeracaoColetasPDF.pdb
