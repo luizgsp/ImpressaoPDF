@@ -2,9 +2,9 @@
 <Config>
   <CaminhoOrigem>C:\RELATOS\</CaminhoOrigem>
   <CaminhoDestino>C:\RELATOS\Impressos\</CaminhoDestino>
-  <ServidorSMTP>mail.minasferramentas.com.br</ServidorSMTP>
-  <ContaEmail>centraldeemailautomatico@minasferramentas.com.br</ContaEmail>
-  <Pass>M1n4aSf*</Pass>
+  <ServidorSMTP>mail.myportal.com.br</ServidorSMTP>
+  <ContaEmail>centraldeemailautomatico@myportal.com.br</ContaEmail>
+  <Pass>mypassword</Pass>
   <PortaSMTP>587</PortaSMTP>
   <CorpoEmail><![CDATA[Prezado Cliente,<br />
 <br />
@@ -17,6 +17,7 @@ No aguardo de vossa confirma&ccedil;&atilde;o, antecipamos os nossos agradecimen
 Este e-mail &eacute; enviado automaticamente. Favor utilizar os dados abaixo para contato.<br />
 ]]>
   </CorpoEmail>
-  <CaminhoImpressora1>\\srvmfprn\HP-3010-PREGAO</CaminhoImpressora1>
-  <CaminhoImpressora2>\\srvmfprn\HP-3010-PREGAO</CaminhoImpressora2>
+  <CaminhoImpressora1>\\srvmfprn\impressora-loja1</CaminhoImpressora1>
+  <CaminhoImpressora2>\\srvmfprn\impressora-loja2</CaminhoImpressora2>
+  <Telefone>+55 31 9999-9999</Telefone>
 </Config>
