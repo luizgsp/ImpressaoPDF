@@ -1,0 +1,103 @@
+{
+	"NumVendedor":394,
+	"Cotacao Nr": 7061,
+	"Data Cotacao": "03/09/14",
+	"Vendedor": "SOARES, RONALDO SOARES PEREIRA",
+	"Referente a":null,
+	"Cliente": {                                                                                                    
+		 "Razao Social": "MINERACAO CURIMBABA LTDA",        
+		 "CNPJ/CPF": "23.640.204/0002.73",
+		 "Inscr. Estadual": null,
+		 "Logradouro": "ROD. POCOS DE CALDAS KM 1 B. CAMPO DO MEIO",
+		 "Cidade":"POCOS DE CALDAS",
+		 "UF":"MG",
+		 "CEP":"37.701-970",
+		 "Tel.":"(35) 3729-7600",
+		 "Fax.":"(00) 0000-0001",
+		 "E-mail":"rogerio.honorio@grupocurimbaba.com.br",
+		 "ATT.Sr(a).": null
+	},
+	"Mensagem": "LEVAMOS A DISTINTA APRECIACAO DE V.SAS., NOSSA PROPOSTA PARA FORNECIMENTO DOS ITENS ABAIXO",
+	"Itens": [	
+			{
+				"Item":  ,
+				"Codigo": ,
+				"Discriminacao": "",
+				"Quantide": ,
+				"Class.Fiscal": "",
+				"% ICMS": "",
+				"Unit c/ICMS": ,
+				"Total c/ICMS": ,
+				"IPI": "",
+				"Prazo Entrega": "",
+			},
+			{
+				"Item":  001,
+				"Codigo": 43351,
+				"Discriminacao": "KG ELETRODO 2,5MM-LT18 OK4600 ESAB",
+				"Quantide": 36.00,
+				"Class.Fiscal": "83111000",
+				"% ICMS": "ST*18.00",
+				"Unit c/ICMS": 15.44,
+				"Total c/ICMS": 555.84,
+				"IPI": "*",
+				"Prazo Entrega": "Imediato",
+			},
+			{
+				"Item": 002,
+				"Codigo": 21140,
+				"Discriminacao": "KG ELETRODO 2,5MM-LT15 OK5500 ESAB",
+				"Quantide": 30.00,
+				"Class.Fiscal": "83111000",
+				"% ICMS": "ST*18,00",
+				"Unit c/ICMS": 18.41,
+				"Total c/ICMS": 552.30,
+				"IPI": "*",
+				"Prazo Entrega": "Imediato"
+			},
+			{
+				"Item":  003,
+				"Codigo": 21733,
+				"Discriminacao": "KG ELETRODO 3,25MM-LT18 OK5500 ESAB",
+				"Quantide": 72.00,
+				"Class.Fiscal": "83111000",
+				"% ICMS": "ST*18.00",
+				"Unit c/ICMS": 15.49,
+				"Total c/ICMS": 1115.28,
+				"IPI": "*",
+				"Prazo Entrega": "Imediato",
+			},
+			{
+				"Item":  004,
+				"Codigo": 51452,
+				"Discriminacao": "KG ELETRODO 5MM-LT25 OK5500 ESAB",
+				"Quantide": 100.00,
+				"Class.Fiscal": "83111000",
+				"% ICMS": "ST*18.00",
+				"Unit c/ICMS": 16.09,
+				"Total c/ICMS": 1609.00,
+				"IPI": "*",
+				"Prazo Entrega": "Imediato",
+			},
+		],
+	"Totais":
+		{ "Mensagem IPI": "Credito de IPI: 50% da aliq. da TIPI do produto, no caso de industrializacao",
+			"Valor da Mão de Obra": 0.00,
+			"Total do IPI": 0.00,
+			"Total de Mercadorias": 3832.42,
+			"Total Geral": 3832.42,
+		},
+	"Observacoes":
+		{
+			"Condicao de Pagamento": 045,
+			"Validade Ate"  : "08/09/14",
+			"Reajuste"      : "Preco firme",
+			"ICMS" : "* ICMS recolhido por subst.tributaria",
+			"Local Entrega": "POSTO NOSSA LOJA/SUA TRANSPORTADORA",
+			"Prazo Entrega": "VIDE-ITENS",
+			"Obs":[
+					"'Imediato' POR IMEDIATO ENTENDE-SE SALVO VENDA PREVIA"
+				]
+		}
+
+}

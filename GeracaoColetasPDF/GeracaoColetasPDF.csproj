@@ -72,6 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Items.cs" />
+    <Compile Include="Entities\Notes.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Config.cs" />
     <Compile Include="Entities\Priorities.cs" />
     <Compile Include="Entities\Seller.cs" />
@@ -81,6 +85,7 @@
     <Compile Include="Services\SendMail.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="70612394.json" />
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

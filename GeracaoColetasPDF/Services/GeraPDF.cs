@@ -3,9 +3,6 @@ using iTextSharp.text;
 using System;
 using System.IO;
 using System.Diagnostics;
-using System.Net.Mail;
-using System.Net;
-using System.Data;
 using System.Text.RegularExpressions;
 using iTextSharp.text.pdf;
 
@@ -17,15 +14,7 @@ namespace GeracaoColetasPDF.Services
         public string Printer1 { get; set; }
         public string Printer2 { get; set; }
         public bool Printer { get; set; }
-        public string SalesPerson { get; set; }
-        public string Buyer { get; set; }
-        public string  Customer { get; set; }
-        public string NumOrder { get; set; }
-        public string CnpjCpf { get; set; }
-        public string EmailCustomer { get; set; }
-        public string  EmailBody { get; set; }
-        public string Note1 { get; set; }
-        public string Note2 { get; set; }
+        public string EmailBody { get; set; }
         public BaseColor FontColor { get; set; }
         public bool AlternateColor { get; set; }
         public Config Config { get; set; } = new Config();
@@ -121,23 +110,20 @@ namespace GeracaoColetasPDF.Services
                 int intLinha = 0;
                 int ind1 = 6;
                 bool Linha1 = true;
-                //Boolean PulaPagina = false;
                 string PrimeiroItemCabec = "";
                 AlternateColor = true;
                 FontColor = BaseColor.BLACK;
-                SalesPerson = "";
-                Buyer = "";
-                Customer = "";
-                NumOrder = "";
-                CnpjCpf = "";
-                EmailCustomer = "";
-                Note1 = "";
-                Note2 = "";
+
                 int TotalPaginas = CountPages(Config.SourcePath + fileTxt);
                 int ContaPaginas = 1;
+
+                Order order = new Order();
+
                 StreamReader srArquivo = new StreamReader(Config.SourcePath + fileTxt);
                 while (!srArquivo.EndOfStream)
                 {
+                    BaseColor baseColor = GetColor(AlternateColor);
+
                     string strLinha = srArquivo.ReadLine();
                     if (strLinha != "")
                     {
@@ -162,92 +148,51 @@ namespace GeracaoColetasPDF.Services
                                         switch (intLinha)
                                         {
                                             case 0:// Numero da Cotacao
-
                                                 Chunk c5 = new Chunk(linhaA[0], FontFactory.GetFont(FontFactory.TIMES_ROMAN, 16, iTextSharp.text.Font.NORMAL));
                                                 Chunk c6 = new Chunk(linhaA[1], FontFactory.GetFont(FontFactory.TIMES_ROMAN, 16, iTextSharp.text.Font.NORMAL));
                                                 Phrase p2 = new Phrase();
                                                 p2.Add(c5);
                                                 p2.Add(c6);
                                                 cellCabec = new PdfPCell(p2);
-                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_CENTER, GetColor(AlternateColor));
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_CENTER, baseColor);
 
                                                 linhaA1[0] = Detalhes;
-                                                NumOrder = Detalhes;
+                                                order.OrderNumber = int.Parse( Detalhes.Trim());
                                                 break;
                                             case 1://Data da cotacao e pagina
                                                 cellCabec = new PdfPCell(new Phrase(Detalhes + @" Pag.: " + ContaPaginas.ToString("##0") + @"/" + TotalPaginas, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
-                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_CENTER, GetColor(AlternateColor));
-
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_CENTER, baseColor);
                                                 linhaA1[1] = Detalhes;
                                                 break;
                                             case 2://Vendedor
                                                 cellCabec = new PdfPCell(new Phrase(Detalhes, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
-                                                SalesPerson = linhaA[1];
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_CENTER, baseColor);
+                                                order.SalesPerson = linhaA[1].Trim();
                                                 linhaA1[2] = Detalhes;
                                                 break;
                                             case 3://Referente
                                                 cellCabec = new PdfPCell(new Phrase(Detalhes, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_LEFT, baseColor);
                                                 linhaA1[3] = Detalhes;
                                                 break;
                                             case 4:
                                                 cellCabec = new PdfPCell(new Phrase(Detalhes, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.BOLDITALIC)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 6;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_LEFT, baseColor);
                                                 linhaA1[4] = Detalhes;
                                                 break;
 
                                             default:
                                                 cellCabec = new PdfPCell(new Phrase(@"Belo Horizonte-MG CEP 30.170-012", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_MIDDLE, baseColor);
 
                                                 cellCabec = new PdfPCell(new Phrase(@"", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_MIDDLE, baseColor);
 
                                                 cellCabec = new PdfPCell(new Phrase(@"Tel.: (31) 2101.6000 - Fax: (31) 2101.6010", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_MIDDLE, baseColor);
 
                                                 cellCabec = new PdfPCell(new Phrase(@"", FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL)));
-                                                cellCabec.Border = 0;
-                                                cellCabec.Colspan = 2;
-                                                cellCabec.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                                cellCabec.HorizontalAlignment = Element.ALIGN_CENTER;
-                                                cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                TableCabec.AddCell(cellCabec);
+                                                AddCell(ref TableCabec, ref cellCabec, 0, 2, Element.ALIGN_MIDDLE, Element.ALIGN_MIDDLE, baseColor);
 
                                                 table.AddCell(TableCabec);
                                                 linhaA1[4] = Detalhes;
@@ -255,16 +200,17 @@ namespace GeracaoColetasPDF.Services
                                         }
                                         intLinha++;
                                         break;
-                                    case "B":
+                                    case "B": //Dados do cliente
                                         if (LetraAnt != Letra) { LetraAnt = Letra; }
                                         if (Detalhes.Length > 2)
                                         {
                                             string[] linhaB = Detalhes.Split(char.Parse("|"));
                                             switch (linhaB.Length)
                                             {
-                                                case 3: // Razão Social, CNPJ, IE
+                                                case 3: //Razão Social, CNPJ, IE
                                                     foreach (string dados in linhaB)
                                                     {
+
                                                         string[] linhaB1 = dados.Split(char.Parse(":"));
                                                         if (linhaB1.Length == 2)
                                                         {
@@ -277,18 +223,16 @@ namespace GeracaoColetasPDF.Services
                                                             paragrafo.Add(NovaLinha);
                                                             paragrafo.Add(c2);
                                                             cellCabec = new PdfPCell(paragrafo);
-                                                            //cellCabec.Border = 0;
+                                                            int colspan = 2;
                                                             if (linhaB1[0].Contains("Razao Social"))
                                                             {
-                                                                cellCabec.Colspan = 4;
+                                                                colspan = 4;
                                                                 Customer = linhaB1[1];
                                                             }
-                                                            if (linhaB1[0].Contains("CNPJ"))
-                                                                CnpjCpf = linhaB1[1];
-                                                            cellCabec.VerticalAlignment = Element.ALIGN_TOP;
-                                                            cellCabec.HorizontalAlignment = Element.ALIGN_LEFT;
-                                                            cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                            tableClientes2.AddCell(cellCabec);
+                                                            if (linhaB1[0].Contains("CNPJ")) { CnpjCpf = linhaB1[1]; }
+
+                                                            AddCell(ref tableClientes2, ref cellCabec, 0, colspan, Element.ALIGN_TOP, Element.ALIGN_LEFT, baseColor);
+
                                                         }
                                                     }
                                                     linhaA1[5] = Detalhes;
@@ -308,13 +252,10 @@ namespace GeracaoColetasPDF.Services
                                                             paragrafo.Add(NovaLinha);
                                                             paragrafo.Add(c2);
                                                             cellCabec = new PdfPCell(paragrafo);
-                                                            //cellCabec.Border = 0;
+                                                            int colspan = 2;
                                                             if (linhaB2[0].Contains("Logradouro"))
-                                                                cellCabec.Colspan = 3;
-                                                            cellCabec.VerticalAlignment = Element.ALIGN_TOP;
-                                                            cellCabec.HorizontalAlignment = Element.ALIGN_LEFT;
-                                                            cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                            tableClientes2.AddCell(cellCabec);
+                                                                colspan = 3;
+                                                            AddCell(ref tableClientes2, ref cellCabec, 0, colspan, Element.ALIGN_TOP, Element.ALIGN_LEFT, baseColor);
                                                         }
                                                     }
                                                     linhaA1[6] = Detalhes;
@@ -338,12 +279,7 @@ namespace GeracaoColetasPDF.Services
                                                         if (linhaB3[0].Contains("ATT"))
                                                             Buyer = linhaB3[1];
 
-                                                        //cellCabec.Border = 0;
-                                                        cellCabec.Colspan = 2;
-                                                        cellCabec.VerticalAlignment = Element.ALIGN_TOP;
-                                                        cellCabec.HorizontalAlignment = Element.ALIGN_LEFT;
-                                                        cellCabec.BackgroundColor = GetColor(AlternateColor);
-                                                        tableClientes2.AddCell(cellCabec);
+                                                        AddCell(ref tableClientes2, ref cellCabec, 0, 2, Element.ALIGN_TOP, Element.ALIGN_LEFT, baseColor);
                                                         ind1++;
                                                         linhaA1[ind1] = Detalhes;
                                                     }
@@ -1191,7 +1127,7 @@ namespace GeracaoColetasPDF.Services
             //Console.WriteLine("Documento PDF criado com sucesso.");
         }
 
-        private void AddCell(ref PdfPTable table, ref PdfPCell cell, int border, int colspan,int verticalAlignment,int horizontalAlignment, BaseColor color)
+        private void AddCell(ref PdfPTable table, ref PdfPCell cell, int border, int colspan, int verticalAlignment, int horizontalAlignment, BaseColor color)
         {
             cell.Border = border;
             if (colspan > 0) cell.Colspan = colspan;
@@ -1279,8 +1215,8 @@ namespace GeracaoColetasPDF.Services
                         Customer = EmailCustomer;
                     }
 
-                    
-                    
+
+
                     if (IsValidEmail(EmailCustomer))
                     {
 
@@ -1311,7 +1247,7 @@ namespace GeracaoColetasPDF.Services
                             seller.Email,
                             enviaMensagem,
                             emailCustomer: "copiadeemail@myportal.com.br",
-                            Subject, 
+                            Subject,
                             targetFile,
                             seller.Name,
                             seller.Password,
